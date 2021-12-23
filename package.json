@@ -1,0 +1,15 @@
+{
+  "name": "WHS",
+  "version": "1.0.0",
+  "description": "硬件管理平台",
+  "main": "index.js",
+  "author": "rayzhb",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.29"
+  }
+}
