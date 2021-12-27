@@ -28,8 +28,13 @@ contributors : true
 │  └─  └─ WHSPlugin5
 └─ WHS
 ```
-## 第三方
-WPF : MahApps.Metro  [参考](https://github.com/MahApps/MahApps.Metro)
+## 环境
+
+程序环境：.net5.0-windows
+
+## 第三方参考资料
+
+WPF框架 : MahApps.Metro  [参考](https://github.com/MahApps/MahApps.Metro)
 
 MVVM：Caliburn.Micro [参考](https://caliburnmicro.com/documentation/)
 
@@ -40,3 +45,7 @@ MVVM：Caliburn.Micro [参考](https://caliburnmicro.com/documentation/)
 ICON：MahApps.Metro.IconPacks.FontAwesome   [参考](https://github.com/MahApps/MahApps.Metro.IconPacks)
 
 弹性和瞬态故障处理库:Polly [参考](https://github.com/App-vNext/Polly)
+
+文档工具：Sandcastle   [参考](https://github.com/EWSoftware/SHFB)
+
+打包工具：WIX   [参考](https://wixtoolset.org/)
