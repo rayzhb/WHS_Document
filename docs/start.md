@@ -30,22 +30,22 @@ contributors : true
 ```
 ## 环境
 
-程序环境：.net5.0-windows
+    程序环境：.net5.0-windows
 
 ## 第三方参考资料
 
-WPF框架 : MahApps.Metro  [参考](https://github.com/MahApps/MahApps.Metro)
+1.WPF框架 : MahApps.Metro  [参考](https://github.com/MahApps/MahApps.Metro)
 
-MVVM：Caliburn.Micro [参考](https://caliburnmicro.com/documentation/)
+2.MVVM：Caliburn.Micro [参考](https://caliburnmicro.com/documentation/)
 
-日志：NLOG   [参考](https://github.com/NLog/NLog)
+3.日志：NLOG   [参考](https://github.com/NLog/NLog)
 
-通信：DotNetty.Transport.Libuv  [参考](https://github.com/Azure/DotNetty)
+4.通信：DotNetty.Transport.Libuv  [参考](https://github.com/Azure/DotNetty)
 
-ICON：MahApps.Metro.IconPacks.FontAwesome   [参考](https://github.com/MahApps/MahApps.Metro.IconPacks)
+5.ICON：MahApps.Metro.IconPacks.FontAwesome   [参考](https://github.com/MahApps/MahApps.Metro.IconPacks)
 
-弹性和瞬态故障处理库:Polly [参考](https://github.com/App-vNext/Polly)
+6.弹性和瞬态故障处理库:Polly [参考](https://github.com/App-vNext/Polly)
 
-文档工具：Sandcastle   [参考](https://github.com/EWSoftware/SHFB)
+7.文档工具：Sandcastle   [参考](https://github.com/EWSoftware/SHFB)
 
-打包工具：WIX   [参考](https://wixtoolset.org/)
+8.打包工具：WIX   [参考](https://wixtoolset.org/)
