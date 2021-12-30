@@ -3,49 +3,73 @@ lastUpdated: true
 contributors : true
 ---
 
+# 介绍
+
+WHS目的是为了让硬件操作变的简单。插件式加载各类子程序。
+使用websocket双工通信，让WEB,PAD,MOBILE,DESKTOP的应用都能访问硬件，同时也让硬件访问的接口统一简单化
+
+## 它是如何工作的
+
+查看[程序目录结构](./guide.md#程序目录结构)。
+
+WHS属于主程序，所有插件的开发都保存在**Plugins**文件夹
+
+## 安装插件模版
+
+程序目录下有2个批处理文件
+
+1. InstallTemplate.bat
+2. UninstallTemplate.bat
+
+双击InstallTemplate.bat，安装成功后。可以使用
+
+```cmd
+dotnet new -l
+```
+查看是否安装成功，会存在一个名叫：**WHS5**的模板
+
+如图：
+![安装插件模版](/images/start_templatelist.png)
+
 # 快速上手
 
-## 程序目录结构
+## 快速开发插件
+
+### 步骤1
+进入**Plugins**文件夹，使用以下命令
+```cmd
+dotnet new WHS5 -n  WHS.HelloWord -D WHS.HelloWord -M rayzhb
 ```
-├─ Core
-│  ├─ WHS.Infrastructure
-│  └─ WPFLocalizeExtension
-├─ Document
-│  └─WHSDocumentation
-├─ Plugins
-│  ├─ WHS.App.Animation
-│  ├─ WHS.DEVICE.AUDIO
-│  ├─ WHS.DEVICE.MAPDESIGN
-│  ├─ WHS.DEVICE.ROBOT3D
-│  ├─ WHS.DEVICE.ROBOTNEW
-│  ├─ WHS.DEVICE.SIGNATURE
-│  └─ WHS.DEVICE.WEIGHT
-├─ Setup
-│  ├─ WHS_CustomAction
-│  └─ WHSSetup
-├─ Templates
-│  └─ WHSPlugin5
-│  └─  └─ WHSPlugin5
-└─ WHS
+
+::: tip
+
+-n 命名空间
+-D 插件显示名字（在多语言中会被替换）
+-M 开发者
+
+:::
+### 步骤2
+将 WHS.HelloWord，加入到解决方案下的plugins
+
+点击WHS.HelloWord生成会发现编译出错。
+
+进入DevicePluginDefinition.cs [插件目录结构](./guide.md#插件目录结构)
+```cs 
+
+ public override Guid Id
+        {
+            get
+            {
+                //按照下面生成一个GUID
+                //return new Guid("xxxxxxxxxxxxxxxxxxx");
+            }
+        }
+
 ```
-## 环境
+修改后编译成功
+### 步骤3
+运行程序后插件的名称并不叫WHS.HelloWord，这是因为 [多语言](./guide.md#多语言)已经修改名称。
 
-    程序环境：.net5.0-windows
+可以在插件中的resouces文件夹中修改PluginDisplayText对应的值
 
-## 第三方参考资料
-
-1.WPF框架 : MahApps.Metro  [参考](https://github.com/MahApps/MahApps.Metro)
-
-2.MVVM：Caliburn.Micro [参考](https://caliburnmicro.com/documentation/)
-
-3.日志：NLOG   [参考](https://github.com/NLog/NLog)
-
-4.通信：DotNetty.Transport.Libuv  [参考](https://github.com/Azure/DotNetty)
-
-5.ICON：MahApps.Metro.IconPacks.FontAwesome   [参考](https://github.com/MahApps/MahApps.Metro.IconPacks)
-
-6.弹性和瞬态故障处理库:Polly [参考](https://github.com/App-vNext/Polly)
-
-7.文档工具：Sandcastle   [参考](https://github.com/EWSoftware/SHFB)
-
-8.打包工具：WIX   [参考](https://wixtoolset.org/)
+空白插件创建完毕
