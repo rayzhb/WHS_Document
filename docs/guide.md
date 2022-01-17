@@ -48,6 +48,8 @@ contributors : true
 
 8.打包工具：WIX   [参考](https://wixtoolset.org/)
 
+9.FluentHttpClient  [参考](https://github.com/Pathoschild/FluentHttpClient)
+
 ## 插件目录结构
 
 ```
@@ -68,7 +70,7 @@ contributors : true
 ├─ Views          //视图
 │  ├─ DeviceView.cs
 │  └─ DeviceView.xaml
-├─ DevicePluginDefinition.cs //插件配置
+├─ DevicePluginDefinition.cs //插件配置定义
 └─ plugin.def       //插件定义
 ```
 
@@ -131,14 +133,13 @@ View继承Page,这是因为主窗体使用的是**Frame**组件对插件的导�
 试图会根据名称自动找到相应的viewmodel.
 
 xxView>>>>>>xxViewModel
-
-├─ ViewModels    
+```
+├─ ViewModels
 │  └─ DeviceViewModel.cs
-├─ Views          
+├─ Views
 │  ├─ DeviceView.cs
-│  └─ DeviceView.xaml
-
-
+└─ └─ DeviceView.xaml
+```
 ## 命令
 
 ### 为什么程序中要使用命令？
@@ -214,4 +215,173 @@ Action: **RESPONSE**会根据**REQUEST**照样返回。
 
 ![插件多语言](/images/guide_webtest.png)
 
+## 热加载
+vs2019以上的版本已经支持hot reload
+为什么插件还需要一个热加载？
+    当程序反射子插件的时候常规加载方式：
+        主程序运行的时候，如果插件存在更新，需要关闭主程序才能应用新的插件.
+    热加载的理念是：
+        主程序运行的时候，如果插件存在更新，不需要关闭主程序也能加载新的插件内容.
+
+``` plugin.def
+<plugin>
+   <file name="xxxxxxxx.dll"/>
+  <!--anycpu  x64 x86  arm arm64 wasm -->
+  <runPlatform target="anycpu" />
+  <enableHotReload>true</enableHotReload> 
+</plugin>
+```
+::: tip
+enableHotReload 设置为true代表热加载
+:::
+
+::: warning
+
+当插件开发使用到pinvoke.net的方式加载C或者C++的文件的时候。
+
+需要设置enableHotReload为false
+
+:::
+
 ## 高级
+
+### 插件拦截
+举例:当插件加载的时候，需要通过http访问服务端获取到token
+
+``` cs
+    public class AuthPulginInterceptor : IPluginInterceptor
+    {
+
+        public void AfterHandle()
+        {
+
+        }
+
+        public bool PreHandle(MessageRequest requestmessage)
+        {
+            if (PluginContext.AuthModel == null)
+            {
+                var view = GlobalContext.SimpleContainer.GetInstance<ViewModels.PrintViewModel>();
+
+                try
+                {
+                    var client = new FluentClient(ServerSettings.ApiUrl);
+                    var response = client.GetAsync(PluginContext.AuthAddress)
+                       .WithArgument("ClientId", "WHS#" + HardwareID.Value())
+                       .WithArgument("ClientSecret", HardwareID.Value())
+                       .WithArgument("GrantType", "client_credential")
+
+                       .WithOptions(true, true)
+                       .AsResponse().Result;
+                    client.Dispose();
+
+                    if (response.Status == System.Net.HttpStatusCode.OK)
+                    {
+                        PluginContext.AuthModel = response.As<AuthModel>().Result;
+                        view.PrintStatusBrush = Brushes.Blue;
+                        view.PrintStatus = "连接打印服务成功";
+                        view.BtnVisibility = Visibility.Hidden;
+                        return true;
+                    }
+                    else
+                    {
+                        view.PrintStatusBrush = Brushes.Red;
+                        view.PrintStatus = "无法连接打印服务";
+                        view.BtnVisibility = Visibility.Visible;
+                        ErrorMessageModel messageModel = response.As<ErrorMessageModel>().Result;
+                        MessageResponse res = new MessageResponse();
+                        res.ID = requestmessage.ID;
+                        res.ChannelID = requestmessage.ChannelID;
+                        res.Action = requestmessage.Action;
+                        res.errCode = messageModel.Code;
+                        res.errText = messageModel.Message + "。请复制关于界面的硬件ID，联系管理员";
+                        EnvironmentManager.Instance.PostResponseMessage(res);
+                        return false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    view.PrintStatusBrush = Brushes.Red;
+                    view.PrintStatus = "无法连接打印服务(异常)";
+                    view.BtnVisibility = Visibility.Visible;
+                    MessageResponse res = new MessageResponse();
+                    res.ID = requestmessage.ID;
+                    res.ChannelID = requestmessage.ChannelID;
+                    res.Action = requestmessage.Action;
+                    res.errCode = 400;
+                    res.errText = ex.Message;
+                    EnvironmentManager.Instance.PostResponseMessage(res);
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+```
+
+在[插件配置定义](./guide.md#插件目录结构)中注册拦截
+``` cs
+public override void Init()
+{
+    ///xxxx
+    base.RegistPulginInterceptor(new AuthPulginInterceptor());
+    ///xxxx
+}
+```
+
+### HTTP请求拦截
+
+举例：当HTTP访问的服务端返回未授权。重试一次，使用refreshtoken再次获取到新的token，并重提交档次失败的数据
+``` cs
+    public class RetryTokenCoordinator : IRequestCoordinator
+    {
+        public Task<HttpResponseMessage> ExecuteAsync(IRequest request, Func<IRequest, Task<HttpResponseMessage>> dispatcher)
+        {
+            return Policy
+               .HandleResult<HttpResponseMessage>(response =>
+               {
+                   return response.StatusCode == HttpStatusCode.Unauthorized;
+               })
+               .RetryAsync(1, async (response, retryCount, context) =>
+               {
+                   //刷新Token的逻辑
+                   var client = new FluentClient(ServerSettings.ApiUrl);
+                   var refreshResponse = await client.GetAsync(PluginContext.AuthAddress)
+                    .WithArgument("ClientId", "WHS" + HardwareID.Value())
+                    .WithArgument("ClientSecret", HardwareID.Value())
+                    .WithArgument("GrantType", "refresh_token")
+                    .WithArgument("RefreshToken", PluginContext.AuthModel.RefreshToken)
+                    .WithOptions(true, true)
+                    .AsResponse();
+                   client.Dispose();
+                   if (refreshResponse.Status == HttpStatusCode.OK)
+                   {
+                       //刷新成功后获取新的token 和 refresh_token等信息
+                       PluginContext.AuthModel = await refreshResponse.As<AuthModel>();
+                       //替换上次失败访问的token
+                       await request.WithBearerAuthentication(PluginContext.AuthModel.Token);
+                   }
+               })
+               .ExecuteAsync(() =>
+               {
+                   //执行上次的请求
+                   return dispatcher(request);
+               });
+        }
+    }
+```
+
+使用方式:
+
+``` cs
+ var client = new FluentClient(ServerSettings.ApiUrl);
+                    var templateResponse = client.GetAsync(PluginContext.TemplateAddress)
+                       .WithArgument("printUid", printTask.PrintUID.ToString())
+                       .WithBearerAuthentication(PluginContext.AuthModel.Token)
+                       .WithHeader("CfgId", printTask.CfgId.ToString())
+                       .WithRequestCoordinator(new RetryTokenCoordinator())
+                       .WithOptions(true, true)
+                       .AsResponse().Result;
+                    client.Dispose();
+
+```
