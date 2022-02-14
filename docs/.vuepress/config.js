@@ -55,8 +55,6 @@ module.exports = {
         navbar: [
           {text: '快速上手',link: '/start'},
           { text: '指南',link: '/guide'},
-          { text: '配置',link: '/config'},
-          { text: '接口',link: '/api'},
           { text: '后续',link: '/future'},
           {
             text: '示例',
@@ -77,9 +75,7 @@ module.exports = {
         navbar: [
           {text: 'Strat',link: '/en/start'},
           { text: 'Guide',link: '/en/guide'},
-          { text: 'Config',link: '/config'},
-          { text: 'API',link: '/api'},
-          { text: 'Future',link: '/future'},
+          { text: 'Future',link: '/en/future'},
           {
             text: 'Demos',
             children: [ 

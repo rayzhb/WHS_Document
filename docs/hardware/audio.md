@@ -2,7 +2,7 @@
 lastUpdated: true
 contributors : true
 ---
- # 声音插件
+ # 声音插件-通信接口
 
 ## 播放声音
 

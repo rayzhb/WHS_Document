@@ -2,7 +2,7 @@
 lastUpdated: true
 contributors : true
 ---
-# WEIGHT
+# WEIGHT-通信接口
 
 ##  打开电子秤
 

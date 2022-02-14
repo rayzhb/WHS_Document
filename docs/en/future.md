@@ -1,7 +1,7 @@
-# 后续开发
+# Future
 
-1.升级到.net 6.0
+1. Upgrade to net 6.0
 
-2.添加插件下载升级平台
+2. Add plug-in download and upgrade platform
 
-3.主程序增量更新程序
+3. Main program incremental update program

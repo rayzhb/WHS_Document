@@ -32,23 +32,23 @@ contributors : true
 
 ### 贡献
 
-1.WPF框架 : MahApps.Metro  [参考](https://github.com/MahApps/MahApps.Metro)
+1. WPF框架 : MahApps.Metro  [参考](https://github.com/MahApps/MahApps.Metro)
 
-2.MVVM：Caliburn.Micro [参考](https://caliburnmicro.com/documentation/)
+2. MVVM：Caliburn.Micro [参考](https://caliburnmicro.com/documentation/)
 
-3.日志：NLOG   [参考](https://github.com/NLog/NLog)
+3. 日志：NLOG   [参考](https://github.com/NLog/NLog)
 
-4.通信：DotNetty.Transport.Libuv  [参考](https://github.com/Azure/DotNetty)
+4. 通信：DotNetty.Transport.Libuv  [参考](https://github.com/Azure/DotNetty)
 
-5.ICON：MahApps.Metro.IconPacks.FontAwesome   [参考](https://github.com/MahApps/MahApps.Metro.IconPacks)
+5. ICON：MahApps.Metro.IconPacks.FontAwesome   [参考](https://github.com/MahApps/MahApps.Metro.IconPacks)
 
-6.弹性和瞬态故障处理库:Polly [参考](https://github.com/App-vNext/Polly)
+6. 弹性和瞬态故障处理库:Polly [参考](https://github.com/App-vNext/Polly)
 
-7.文档工具：Sandcastle   [参考](https://github.com/EWSoftware/SHFB)
+7. 文档工具：Sandcastle   [参考](https://github.com/EWSoftware/SHFB)
 
-8.打包工具：WIX   [参考](https://wixtoolset.org/)
+8. 打包工具：WIX   [参考](https://wixtoolset.org/)
 
-9.FluentHttpClient  [参考](https://github.com/Pathoschild/FluentHttpClient)
+9. FluentHttpClient  [参考](https://github.com/Pathoschild/FluentHttpClient)
 
 ## 插件目录结构
 
@@ -112,7 +112,7 @@ xx-languageName-xx  语言名称如：zh-CN,en
 View继承Page,这是因为主窗体使用的是**Frame**组件对插件的导航
 
 ``` cs
-/// <summary>
+    /// <summary>
     /// DeviceView.xaml 的交互逻辑
     /// </summary>
     public partial class DeviceView : Page

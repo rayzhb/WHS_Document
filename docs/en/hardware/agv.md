@@ -3,13 +3,13 @@ lastUpdated: true
 contributors : true
 ---
 
-# AGV
-结合地图设计器插件联合使用
+# AGV-communication
+Combined with [map designer](./agvmapdesign.md) plug-in
 ## 1.agv_register:
 
-说明:注册信道
+register channel
 
-方式:Request->Response
+Request->Response
 
 ```json
 {"Params": 
@@ -17,23 +17,23 @@ contributors : true
 "ID": "1","Action": "agv_register"}
 ```
 
-| 字段     | 说明   | 类型   | 备注 |
+| Field    | Description    | Type    | Remarks |
 | -------- | ------ | ------ | ---- |
-| UserName | 用户名 | string |      |
-| Password | 密码   | string |      |
+| UserName | UserName | string |      |
+| Password | Password   | string |      |
 
 ## ~~2.agv_move_new:~~
 
-说明:控制小车移动
+Control AGV movement
 
-方式:Request->Response
+Request->Response
 ```json
 {"Params": 
 {"command":1,"row":4,"column":2,"floor":1,"code":"AGV001"},
 "ID": "1","Action": "agv_move_new"}
 ```
 
-| 字段    | 说明       | 类型   | 备注                                                         |
+| Field    | Description       | Type   | Remarks                                                         |
 | ------- | ---------- | ------ | :----------------------------------------------------------- |
 | command | 命令       | int    | left = 1<br/>right= 2<br/>up=3<br/>down=4<br/>move=5<br/>rotate=6<br/>charge=7<br/>change_floor=8 |
 | row     | 行         | int    |                                                              |
@@ -51,7 +51,7 @@ contributors : true
 "ID": "1","Action": "agv_map"}
 ```
 
-| 字段  | 说明 | 类型 | 备注 |
+| Field  | Description | Type | Remarks |
 | ----- | ---- | ---- | ---- |
 | Floor | 楼层 | int  |      |
 ## 4.agv_allcars:
@@ -84,7 +84,7 @@ contributors : true
 "Action":"agv_move"}
 ```
 
-| 字段       | 说明        | 类型   | 备注                                                         |
+| Field       | Description        | Type   | Remarks                                                         |
 | ---------- | ----------- | ------ | ------------------------------------------------------------ |
 | code       | AGV编码     | string |                                                              |
 | command    | AGV操作命令 | int    | left = 1<br/>right= 2<br/>up=3<br/>down=4<br/>move=5<br/>rotate=6<br/>charge=7<br/>change_floor=8 |

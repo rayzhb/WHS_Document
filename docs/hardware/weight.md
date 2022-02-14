@@ -2,7 +2,7 @@
 lastUpdated: true
 contributors : true
 ---
-# 电子秤插件
+# 电子秤插件-通信接口
 
 ##  打开电子秤
 
