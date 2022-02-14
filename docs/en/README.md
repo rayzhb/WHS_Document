@@ -2,6 +2,13 @@
 home : true
 title: home
 heroImage: /whs.ico
+head:
+  - - meta
+    - http-equiv: pragram
+      content: no-cache
+  - - meta
+    - http-equiv: cache-control
+      content: no-cache, no-store, must-revalidate
 actions:
   - text: get start
     link: /en/start
