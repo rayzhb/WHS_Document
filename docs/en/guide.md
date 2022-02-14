@@ -89,7 +89,7 @@ It is recommended to install a plug-in [resxresourcemanager](https://github.com/
 
 As shown in the figure:
 
-![main program multilingual](/images/guide_rex.PNG)
+![main program multilingual](/images/guide_rex.png)
 
 ### Plug in multilingual
 
@@ -99,7 +99,7 @@ At the same time, after compilation, the command will copy the language folder g
 
 As shown in the figure:
 
-![plug in multilingual](/images/guide_language.JPG)
+![plug in multilingual](/images/guide_language.jpg)
 
 ```
 
@@ -235,7 +235,7 @@ Users can click about - > WHS web test in the program
 
 As shown in the figure:
 
-![plug in multilingual](/images/guide_webtest.PNG)
+![plug in multilingual](/images/guide_webtest.png)
 
 ## Thermal loading
 
