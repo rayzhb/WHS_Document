@@ -16,9 +16,9 @@ actions:
   - text: 指南
     link: /guide
     type: secondary
-  - text: WHS源码
-    link: https://github.com/rayzhb/WHS
-    type: secondary
+  # - text: WHS源码
+  #   link: https://github.com/rayzhb/WHS
+  #   type: secondary
 features:
   - title: 💡 WPF
     details: 

@@ -22,7 +22,11 @@ module.exports = {
   // 主题和它的配置
   theme: '@vuepress/theme-default',
   themeConfig: {
-    repo: 'https://github.com/rayzhb/WHS_Document',
+    repo: 'https://github.com/rayzhb/WHS',
+    docsRepo: 'https://github.com/rayzhb/WHS_Document',
+    docsBranch: 'master',
+    docsDir: 'docs',
+    editLinkPattern: ':repo/edit/:branch/:path',
     logo: './whs.ico',
     locales: {
       '/': {
