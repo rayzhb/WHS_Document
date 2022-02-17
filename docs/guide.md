@@ -50,7 +50,7 @@ contributors : true
 
 9. FluentHttpClient  [参考](https://github.com/Pathoschild/FluentHttpClient)
 
-## 插件目录结构
+## 插件目录结构 
 
 ```
 ├─ Properties

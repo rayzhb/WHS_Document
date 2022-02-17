@@ -3,7 +3,7 @@ lastUpdated: true
 contributors : true
 ---
 
-# 仿真机器人插-通信接口
+# 仿真机器人插件-通信接口
 结合地图设计器插件联合使用
 ## 1.agv_register:
 

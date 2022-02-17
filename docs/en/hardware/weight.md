@@ -2,32 +2,28 @@
 lastUpdated: true
 contributors : true
 ---
-# WEIGHT-通信接口
+# WEIGHT-communication
 
-##  打开电子秤
+## Open
 
-| 命令        | 例子                                                         |
+| Command        | Sample                                                         |
 | ----------- | ------------------------------------------------------------ |
 | weight_open | {    "Params": {},    "ID": "XXXXXXXXX",    "Action": "weight_open"  } |
 
-传入参数：无
+Input:none
 
-返回参数：异步回调（当电子秤返回数据的时候才会回调到客户端）
+Return: Asynchronous callback (it will be called back to the client only when the device returns data)
 
-| 例子                                                         |
+| Sample                                                         |
 | ------------------------------------------------------------ |
 | {      "errCode": 0,  "errText":  "",  "params": {   "Source": “weight”,    "Result": 3.14  },      "ID": "xxxxxxx",      "Action": "weight_callback"  } |
 
- 
+## Close
 
- 
-
-##  关闭电子秤
-
-| 命令         | 例子                                                         |
+| Command         | 例子                                                         |
 | ------------ | ------------------------------------------------------------ |
 | weight_close | {    "Params": {},    "ID": "XXXXXXXXX",    "Action": "weight_close"  } |
 
-传入参数：无
+Input:none
 
-返回参数：
+Return:none

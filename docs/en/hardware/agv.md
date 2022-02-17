@@ -35,17 +35,17 @@ Request->Response
 
 | Field    | Description       | Type   | Remarks                                                         |
 | ------- | ---------- | ------ | :----------------------------------------------------------- |
-| command | 命令       | int    | left = 1<br/>right= 2<br/>up=3<br/>down=4<br/>move=5<br/>rotate=6<br/>charge=7<br/>change_floor=8 |
-| row     | 行         | int    |                                                              |
-| column  | 列         | int    |                                                              |
-| floor   | 楼层       | int    |                                                              |
-| code    | 机器人编码 | string |                                                              |
+| command | command       | int    | left = 1<br/>right= 2<br/>up=3<br/>down=4<br/>move=5<br/>rotate=6<br/>charge=7<br/>change_floor=8 |
+| row     | row         | int    |                                                              |
+| column  | column         | int    |                                                              |
+| floor   | floor       | int    |                                                              |
+| code    | agv code | string |                                                              |
 
 ## 3.agv_map:
 
-说明:获取楼层地图信息
+get floor map information
 
-方式:Request->Response
+Request->Response
 ```json
 {"Params": {"Floor":1},
 "ID": "1","Action": "agv_map"}
@@ -53,12 +53,12 @@ Request->Response
 
 | Field  | Description | Type | Remarks |
 | ----- | ---- | ---- | ---- |
-| Floor | 楼层 | int  |      |
+| Floor | Floor | int  |      |
 ## 4.agv_allcars:
 
-说明:获取所有小车信息
+Get all agv information
 
-方式:Request->Response
+:Request->Response
 ```json
 {"Params": {},"ID": "1",
 "Action": "agv_allcars"}
@@ -66,12 +66,11 @@ Request->Response
 
 ## 5.agv_move:（callback）
 
-说明:本命令有服务端主动发送给客户端 **(server->client)**
+This command is actively sent by the server to the clien **(server->client)**
 
+callback
 
-方式:callback
-
-返回数据结构:
+Return Data Structure:
 
 ```json
 {"errCode":0,"errText":"",
@@ -86,12 +85,10 @@ Request->Response
 
 | Field       | Description        | Type   | Remarks                                                         |
 | ---------- | ----------- | ------ | ------------------------------------------------------------ |
-| code       | AGV编码     | string |                                                              |
-| command    | AGV操作命令 | int    | left = 1<br/>right= 2<br/>up=3<br/>down=4<br/>move=5<br/>rotate=6<br/>charge=7<br/>change_floor=8 |
-| floor      | 楼层        | int    |                                                              |
-| startPoint | 起始点      | point  | canvas体系中的坐标<br>left,top                               |
-| endPoint   | 结束点      | point  | canvas体系中的坐标<br>left,top                               |
-| distance   | 线段距离    | double | 距离代表小车运行时间(单位：秒)                               |
-| power      | 电量        | float  | 小数位：一位                                                 |
-
-
+| code       | AGV  CODE     | string |                                                              |
+| command    | AGV COMMAND | int    | left = 1<br/>right= 2<br/>up=3<br/>down=4<br/>move=5<br/>rotate=6<br/>charge=7<br/>change_floor=8 |
+| floor      | floor        | int    |                                                              |
+| startPoint | startPoint      | point  |                            |
+| endPoint   | endPoint      | point  |                             |
+| distance   | distance    | double | seconds                             |
+| power      | power        | float  |                                                 |

@@ -2,17 +2,17 @@
 lastUpdated: true
 contributors : true
 ---
- # AUDIO-通信接口
+# AUDIO-communication
 
-## 播放声音
+## Play Sound
 
-| 命令       | 例子                                                         |
+| Comannd       | Sample                                                         |
 | ---------- | ------------------------------------------------------------ |
 | Play_Voice | {"Params":{"Type":"PlayOK","Index":0},"ID":"XXXXXXXXX","Action":"Play_Voice"} |
 
-传入参数：
+Input parameters：
 
-| 参数  | 类型   | 字段名                                                       |
+| Field  | Type   | Remarks                                                       |
 | ----- | ------ | ------------------------------------------------------------ |
-| Type  | string | 类型:"PlayOK"，"PlayCancel"，"PlayMsg"，"PlayError"，"ScanError"，"PlaySucces"，"PlayIndex"     计数扫描 |
-| Index | Int    | "PlayOK"计数扫描次数                                         |
+| Type  | string | Enum:"PlayOK"，"PlayCancel"，"PlayMsg"，"PlayError"，"ScanError"，"PlaySucces"，"PlayIndex" |
+| Index | Int    | if the input of Type is "PlayIndex" then the index need to set a value                     |
