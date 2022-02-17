@@ -22,7 +22,7 @@ module.exports = {
   // 主题和它的配置
   theme: '@vuepress/theme-default',
   themeConfig: {
-    repo: 'https://hrms.ruyicang.com/hrms',
+    repo: 'https://github.com/rayzhb/WHS_Document',
     logo: './whs.ico',
     locales: {
       '/': {

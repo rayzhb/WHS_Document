@@ -10,11 +10,14 @@ head:
     - http-equiv: cache-control
       content: no-cache, no-store, must-revalidate
 actions:
-  - text: get start
+  - text: Get Start
     link: /en/start
     type: primary
-  - text: guide
+  - text: Guide
     link: /en/guide
+    type: secondary
+  - text: Source Code
+    link: https://github.com/rayzhb/WHS
     type: secondary
 features:
   - title: 💡 WPF
