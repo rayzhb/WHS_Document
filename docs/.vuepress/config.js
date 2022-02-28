@@ -68,7 +68,8 @@ module.exports = {
               { text: '声音',link: '/hardware/audio'},
               { text: '重量',link: '/hardware/weight'},
           ],
-          }
+          },
+          { text: '注释',link: '/comment'},
         ],
       },
       '/en/': {
@@ -88,7 +89,8 @@ module.exports = {
               { text: 'AUDIO',link: '/en/hardware/audio'},
               { text: 'WEIGHT',link: '/en/hardware/weight'},
           ],
-          }
+          },
+          { text: 'Comments',link: '/comment'},
         ],
       },
     },
