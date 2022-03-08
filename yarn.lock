@@ -1034,7 +1034,7 @@ markdown-it-emoji@^2.0.0:
 
 markdown-it@^12.2.0, markdown-it@^12.3.2:
   version "12.3.2"
-  resolved "https://repo.huaweicloud.com/repository/npm/markdown-it/-/markdown-it-12.3.2.tgz#bf92ac92283fe983fe4de8ff8abfb5ad72cd0c90"
+  resolved "https://repo.huaweicloud.com/repository/npm/markdown-it/-/markdown-it-12.3.2.tgz"
   integrity sha512-TchMembfxfNVpHkbtriWltGWc+m3xszaRD0CZup7GFFhzIgQqxIfn3eGj1yZpfuflzPvfkt611B2Q/Bsk1YnGg==
   dependencies:
     argparse "^2.0.1"
@@ -1093,7 +1093,7 @@ nanoid@^3.1.30:
 
 nanoid@^3.1.31:
   version "3.3.1"
-  resolved "https://repo.huaweicloud.com/repository/npm/nanoid/-/nanoid-3.3.1.tgz#6347a18cac88af88f58af0b3594b723d5e99bb35"
+  resolved "https://repo.huaweicloud.com/repository/npm/nanoid/-/nanoid-3.3.1.tgz"
   integrity sha512-n6Vs/3KGyxPQd6uO0eH4Bv0ojGSUvuLlIHtC3Y0kEO23YRge8H9x1GCzLn28YX0H66pMkxuaeESFq4tKISKwdw==
 
 neo-async@^2.6.2:
@@ -1200,6 +1200,11 @@ prismjs@^1.25.0:
   version "1.25.0"
   resolved "https://repo.huaweicloud.com/repository/npm/prismjs/-/prismjs-1.25.0.tgz"
   integrity sha512-WCjJHl1KEWbnkQom1+SzftbtXMKQoezOCYs5rECqMN+jP+apI7ftoflyqigqzopSO3hMhTEb0mFClA8lkolgEg==
+
+prismjs@^1.27.0:
+  version "1.27.0"
+  resolved "https://repo.huaweicloud.com/repository/npm/prismjs/-/prismjs-1.27.0.tgz#bb6ee3138a0b438a3653dd4d6ce0cc6510a45057"
+  integrity sha512-t13BGPUlFDR7wRB5kQDG4jjl7XeuH6jbJGt11JHPL96qwsEHNX2+68tFXqc1/k+/jALsbSWJKUOT/hcYAZ5LkA==
 
 queue-microtask@^1.2.2:
   version "1.2.3"

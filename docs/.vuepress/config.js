@@ -109,5 +109,32 @@ module.exports = {
           path.resolve(__dirname, '../../packages/@vuepress')
         ),
     },
-  }
+  },
+  // plugins: [
+  //   [
+  //     '@vuepress/docsearch',
+  //     {
+  //       apiKey: '<API_KEY>',
+  //       indexName: '<INDEX_NAME>',
+  //       locales: {
+  //         '/': {
+  //           placeholder: 'Search Documentation',
+  //           translations: {
+  //             button: {
+  //               buttonText: 'Search Documentation',
+  //             },
+  //           },
+  //         },
+  //         '/zh/': {
+  //           placeholder: '搜索文档',
+  //           translations: {
+  //             button: {
+  //               buttonText: '搜索文档',
+  //             },
+  //           },
+  //         },
+  //       },
+  //     },
+  //   ],
+  // ]
 }
