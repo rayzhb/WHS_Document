@@ -1,3 +1,5 @@
+const { path } = require('@vuepress/utils')
+
 module.exports = {
   title: 'WHS 硬件开发平台',
   lang: 'zh-CN',
@@ -19,8 +21,9 @@ module.exports = {
     },
 
   },
-  // 主题和它的配置
-  theme: '@vuepress/theme-default',
+  // // 主题和它的配置
+  // theme: '@vuepress/theme-default',
+  theme: path.resolve(__dirname, './theme'),
   themeConfig: {
     repo: 'https://github.com/rayzhb/WHS',
     docsRepo: 'https://github.com/rayzhb/WHS_Document',
