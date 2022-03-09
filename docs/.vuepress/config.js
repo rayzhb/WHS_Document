@@ -113,31 +113,34 @@ module.exports = {
         ),
     },
   },
-  // plugins: [
-  //   [
-  //     '@vuepress/docsearch',
-  //     {
-  //       apiKey: '<API_KEY>',
-  //       indexName: '<INDEX_NAME>',
-  //       locales: {
-  //         '/': {
-  //           placeholder: 'Search Documentation',
-  //           translations: {
-  //             button: {
-  //               buttonText: 'Search Documentation',
-  //             },
-  //           },
-  //         },
-  //         '/zh/': {
-  //           placeholder: '搜索文档',
-  //           translations: {
-  //             button: {
-  //               buttonText: '搜索文档',
-  //             },
-  //           },
-  //         },
-  //       },
-  //     },
-  //   ],
-  // ]
+  plugins: [
+    [
+      '@vuepress/docsearch',
+      {
+        apiKey: '3a539aab83105f01761a137c61004d85',
+        indexName: 'vuepress',
+        searchParameters: {
+          facetFilters: ['tags:v2'],
+        },
+        locales: {
+          '/en/': {
+            placeholder: 'Search Documentation',
+            translations: {
+              button: {
+                buttonText: 'Search Documentation',
+              },
+            },
+          },
+          '/': {
+            placeholder: '搜索文档',
+            translations: {
+              button: {
+                buttonText: '搜索文档',
+              },
+            },
+          },
+        },
+      },
+    ],
+  ]
 }
