@@ -113,34 +113,35 @@ module.exports = {
         ),
     },
   },
-  // plugins: [
-  //   [
-  //     '@vuepress/docsearch',
-  //     {
-  //       apiKey: '3a539aab83105f01761a137c61004d85',
-  //       indexName: 'vuepress',
-  //       searchParameters: {
-  //         facetFilters: ['tags:v2'],
-  //       },
-  //       locales: {
-  //         '/en/': {
-  //           placeholder: 'Search Documentation',
-  //           translations: {
-  //             button: {
-  //               buttonText: 'Search Documentation',
-  //             },
-  //           },
-  //         },
-  //         '/': {
-  //           placeholder: '搜索文档',
-  //           translations: {
-  //             button: {
-  //               buttonText: '搜索文档',
-  //             },
-  //           },
-  //         },
-  //       },
-  //     },
-  //   ],
-  // ]
+  plugins: [
+    [
+      '@vuepress/docsearch',
+      {
+        apiKey: 'c121fee27b7f67ae7290ed489c957b76',
+        indexName: 'WHS_DOCUMENT',
+        appId:'DJ6UG6KA6U',
+        // searchParameters: {
+        //   facetFilters: ['tags:v2'],
+        // },
+        locales: {
+          '/en/': {
+            placeholder: 'Search Documentation',
+            translations: {
+              button: {
+                buttonText: 'Search Documentation',
+              },
+            },
+          },
+          '/': {
+            placeholder: '搜索文档',
+            translations: {
+              button: {
+                buttonText: '搜索文档',
+              },
+            },
+          },
+        },
+      },
+    ],
+  ]
 }
