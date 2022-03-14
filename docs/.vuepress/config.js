@@ -117,7 +117,7 @@ module.exports = {
     [
       '@vuepress/docsearch',
       {
-        apiKey: 'c121fee27b7f67ae7290ed489c957b76',
+        apiKey: '0db63155f42b9b607b4a0c280f8dbb5a',
         indexName: 'WHS_DOCUMENT',
         appId:'N7K790LDD4',
         // searchParameters: {
