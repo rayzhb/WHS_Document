@@ -114,31 +114,18 @@ module.exports = {
     },
   },
   plugins: [
+    // ya
     [
-      '@vuepress/docsearch',
+      '@vuepress/plugin-search',
       {
-        apiKey: '0db63155f42b9b607b4a0c280f8dbb5a',
-        indexName: 'WHS_DOCUMENT',
-        appId:'N7K790LDD4',
-        // searchParameters: {
-        //   facetFilters: ['tags:v2'],
-        // },
+       // 排除首页
+        isSearchable: (page) => page.path !== '/',
         locales: {
-          '/en/': {
-            placeholder: 'Search Documentation',
-            translations: {
-              button: {
-                buttonText: 'Search Documentation',
-              },
-            },
-          },
           '/': {
-            placeholder: '搜索文档',
-            translations: {
-              button: {
-                buttonText: '搜索文档',
-              },
-            },
+            placeholder: '搜索',
+          },
+          '/en/': {
+            placeholder: 'Search',
           },
         },
       },
