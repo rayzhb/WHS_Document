@@ -119,7 +119,7 @@ module.exports = {
       {
         apiKey: 'c121fee27b7f67ae7290ed489c957b76',
         indexName: 'WHS_DOCUMENT',
-        appId:'DJ6UG6KA6U',
+        appId:'N7K790LDD4',
         // searchParameters: {
         //   facetFilters: ['tags:v2'],
         // },
