@@ -5,8 +5,10 @@ module.exports = {
   lang: 'zh-CN',
   description: '下一代 硬件开发平台',
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: './whs.ico' }],
-    ['script', { src: 'https://cdn.wwads.cn/js/makemoney.js', async: '' }]
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: './hardware32.png' }],
+    ['script', { src: 'https://cdn.wwads.cn/js/makemoney.js', async: '' }],
+    ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
+    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
   ],
   locales: {
     '/': {
@@ -30,7 +32,7 @@ module.exports = {
     docsBranch: 'master',
     docsDir: 'docs',
     editLinkPattern: ':repo/edit/:branch/:path',
-    logo: './whs.ico',
+    logo: './hardware32.png',
     locales: {
       '/': {
         selectLanguageName: '简体中文',
@@ -114,7 +116,6 @@ module.exports = {
     },
   },
   plugins: [
-    // ya
     [
       '@vuepress/plugin-search',
       {
@@ -126,6 +127,27 @@ module.exports = {
           },
           '/en/': {
             placeholder: 'Search',
+          },
+        },
+      },
+    ],
+    [
+      '@vuepress/pwa',
+      {
+        skipWaiting: false,
+      },
+    ],
+    [
+      '@vuepress/plugin-pwa-popup',
+      {
+        locales: {
+          '/en/': {
+            message: 'New content is available.',
+            buttonText: 'Refresh',
+          },
+          '/': {
+            message: '发现新内容可用',
+            buttonText: '刷新',
           },
         },
       },

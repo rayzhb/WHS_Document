@@ -1,7 +1,7 @@
 ---
 home : true
 title: 首页
-heroImage: /whs.ico
+heroImage: /hardware32.png
 head:
   - - meta
     - http-equiv: pragram
