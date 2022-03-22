@@ -5,10 +5,9 @@ module.exports = {
   lang: 'zh-CN',
   description: '下一代 硬件开发平台',
   head: [
+    ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
     ['link', { rel: 'icon', type: 'image/svg+xml', href: './hardware32.png' }],
     ['script', { src: 'https://cdn.wwads.cn/js/makemoney.js', async: '' }],
-    ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
   ],
   locales: {
     '/': {
@@ -74,7 +73,7 @@ module.exports = {
               { text: '重量',link: '/hardware/weight'},
           ],
           },
-          { text: '注释',link: '/comment'},
+          // { text: '注释',link: '/comment'},
         ],
       },
       '/en/': {
@@ -95,7 +94,7 @@ module.exports = {
               { text: 'WEIGHT',link: '/en/hardware/weight'},
           ],
           },
-          { text: 'Comments',link: '/comment'},
+          // { text: 'Comments',link: '/comment'},
         ],
       },
     },
@@ -117,20 +116,46 @@ module.exports = {
   },
   plugins: [
     [
-      '@vuepress/plugin-search',
+      '@vuepress/docsearch',
       {
-       // 排除首页
-        isSearchable: (page) => page.path !== '/',
+        appId: 'ZWUBKBHZT0',
+        apiKey: '796955fbbe154ad615a249f76ea5f894',
+        indexName: 'whs-ray-zhb',
         locales: {
-          '/': {
-            placeholder: '搜索',
-          },
           '/en/': {
-            placeholder: 'Search',
+            placeholder: 'Search Documentation',
+            translations: {
+              button: {
+                buttonText: 'Search Documentation',
+              },
+            },
+          },
+          '/': {
+            placeholder: '搜索文档',
+            translations: {
+              button: {
+                buttonText: '搜索文档',
+              },
+            },
           },
         },
       },
     ],
+    // [
+    //   '@vuepress/plugin-search',
+    //   {
+    //    // 排除首页
+    //     isSearchable: (page) => page.path !== '/',
+    //     locales: {
+    //       '/': {
+    //         placeholder: '搜索',
+    //       },
+    //       '/en/': {
+    //         placeholder: 'Search',
+    //       },
+    //     },
+    //   },
+    // ],
     [
       '@vuepress/pwa',
       {
