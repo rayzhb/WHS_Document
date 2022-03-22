@@ -5,6 +5,8 @@ module.exports = {
   lang: 'zh-CN',
   description: '下一代 硬件开发平台',
   head: [
+    ['meta', {  "http-equiv": 'pragram', content: 'no-cache' }],
+    ['meta', {  "http-equiv": 'cache-control', content: 'no-cache, no-store, must-revalidate' }],
     ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
     ['link', { rel: 'icon', type: 'image/svg+xml', href: './hardware32.png' }],
     ['script', { src: 'https://cdn.wwads.cn/js/makemoney.js', async: '' }],

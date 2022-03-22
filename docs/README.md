@@ -2,13 +2,6 @@
 home : true
 title: 首页
 heroImage: /hardware32.png
-head:
-  - - meta
-    - http-equiv: pragram
-      content: no-cache
-  - - meta
-    - http-equiv: cache-control
-      content: no-cache, no-store, must-revalidate
 actions:
   - text: 快速上手
     link: /start
