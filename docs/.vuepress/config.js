@@ -75,7 +75,6 @@ module.exports = {
               { text: '重量',link: '/hardware/weight.html'},
           ],
           },
-          // { text: '注释',link: '/comment.html'},
         ],
       },
       '/en/': {
@@ -96,7 +95,6 @@ module.exports = {
               { text: 'WEIGHT',link: '/en/hardware/weight.html'},
           ],
           },
-          // { text: 'Comments',link: '/comment.html'},
         ],
       },
     },
